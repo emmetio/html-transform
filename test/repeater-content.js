@@ -11,5 +11,6 @@ describe('Repeater content', () => {
 
 	it('implicit repeat', () => {
 		assert.equal(expand('ul>li*', ['foo', 'bar']), '<ul><li>foo</li><li>bar</li></ul>');
+		assert.equal(expand('ul>li*>a+b', ['foo', 'bar']), '<ul><li><a></a><b>foo</b></li><li><a></a><b>bar</b></li></ul>');
 	});
 });
