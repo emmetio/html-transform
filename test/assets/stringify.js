@@ -1,14 +1,15 @@
 'use strict';
 
-export default function stringify(node) {
-	const children = node.children.map(stringify).join('');
+export default function stringify(node, options) {
+	options = options || {};
+	const children = node.children.map(child => stringify(child, options)).join('');
 
 	if (!node.parent && node.isGroup) {
 		// a root container: return its content only
 		return children;
 	} else if (node.isGroup) {
 		// grouping node
-		return `(${children})${counter(node)}`;
+		return `(${children})${counter(node, options)}`;
 	} else if (node.value && !node.name && !node.attributes.length) {
 		// text node
 		return node.value;
@@ -18,12 +19,12 @@ export default function stringify(node) {
 	const name = node.name || '?';
 
 	return node.selfClosing
-		? `<${name}${counter(node)}${attr} />`
-		: `<${name}${counter(node)}${attr}>${node.value || ''}${children}</${name}>`;
+		? `<${name}${counter(node, options)}${attr} />`
+		: `<${name}${counter(node, options)}${attr}>${node.value || ''}${children}</${name}>`;
 }
 
-function counter(node) {
-	if (!node.repeat) {
+function counter(node, options) {
+	if (!node.repeat || options.skipRepeat) {
 		return '';
 	}
 
