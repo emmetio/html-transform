@@ -16,6 +16,13 @@ describe('Item numbering', () => {
 		assert.equal(expand('h$.item${text $$$}*3'), '<h1 class="item1">text 001</h1><h2 class="item2">text 002</h2><h3 class="item3">text 003</h3>');
 
         assert.equal(expand('h$*3>b$'), '<h1><b1></b1></h1><h2><b2></b2></h2><h3><b3></b3></h3>');
+
+        assert.equal(expand('ul#nav>li.item$*3'), '<ul id="nav"><li class="item1"></li><li class="item2"></li><li class="item3"></li></ul>');
+		assert.equal(expand('ul#nav>li.item$$$*3'), '<ul id="nav"><li class="item001"></li><li class="item002"></li><li class="item003"></li></ul>');
+		assert.equal(expand('ul#nav>li.$$item$$$*3'), '<ul id="nav"><li class="01item001"></li><li class="02item002"></li><li class="03item003"></li></ul>');
+		assert.equal(expand('ul#nav>li.pre$*3+li.post$*3'), '<ul id="nav"><li class="pre1"></li><li class="pre2"></li><li class="pre3"></li><li class="post1"></li><li class="post2"></li><li class="post3"></li></ul>');
+		assert.equal(expand('div.sample$*3'), '<div class="sample1"></div><div class="sample2"></div><div class="sample3"></div>');
+		assert.equal(expand('ul#nav>li{text}*3'), '<ul id="nav"><li>text</li><li>text</li><li>text</li></ul>');
 	});
 
     it('numbering from groups', () => {
