@@ -1,5 +1,5 @@
 {
-  "name": "@emmetio/html-expand",
+  "name": "@emmetio/html-transform",
   "version": "0.0.1",
   "description": "Prepares given Emmet abbreviation for HTML output",
   "main": "dist/html-expand.cjs.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emmetio/html-expand.git"
+    "url": "git+https://github.com/emmetio/html-transform.git"
   },
   "keywords": [
     "emmet",
@@ -24,12 +24,12 @@
   "author": "Sergey Chikuyonok <serge.che@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/emmetio/html-expand/issues"
+    "url": "https://github.com/emmetio/html-transform/issues"
   },
   "directories": {
     "test": "test"
   },
-  "homepage": "https://github.com/emmetio/html-expand#readme",
+  "homepage": "https://github.com/emmetio/html-transform#readme",
   "devDependencies": {
     "@emmetio/abbreviation": "^0.4.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
