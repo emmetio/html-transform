@@ -2,15 +2,15 @@
   "name": "@emmetio/html-transform",
   "version": "0.0.1",
   "description": "Prepares given Emmet abbreviation for HTML output",
-  "main": "dist/html-expand.cjs.js",
-  "jsnext:main": "dist/html-expand.es.js",
+  "main": "dist/html-transform.cjs.js",
+  "jsnext:main": "dist/html-transform.es.js",
   "scripts": {
     "test": "mocha",
     "build": "npm run build:cjs && npm run build:es",
-    "build:cjs": "rollup -o dist/html-expand.cjs.js -f cjs ./index.js",
-    "build:es": "rollup -o dist/html-expand.es.js -f es ./index.js",
+    "build:cjs": "rollup -o dist/html-transform.cjs.js -f cjs ./index.js",
+    "build:es": "rollup -o dist/html-transform.es.js -f es ./index.js",
     "prepublish": "npm run build",
-    "watch": "rollup -w -o dist/html-expand.cjs.js -f cjs ./index.js"
+    "watch": "rollup -w -o dist/html-transform.cjs.js -f cjs ./index.js"
   },
   "repository": {
     "type": "git",

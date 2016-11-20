@@ -23,5 +23,6 @@ describe('Implicit tags', () => {
         assert.equal(expand('.foo>.bar'), '<div class="foo"><div class="bar"></div></div>');
         assert.equal(expand('p.foo>.bar'), '<p class="foo"><span class="bar"></span></p>');
         assert.equal(expand('ul>.item*2'), '<ul><li*2@1 class="item"></li><li*2@2 class="item"></li></ul>');
+        assert.equal(expand('table>.row>.cell'), '<table><tr class="row"><td class="cell"></td></tr></table>');
     });
 });
