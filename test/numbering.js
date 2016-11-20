@@ -30,4 +30,9 @@ describe('Item numbering', () => {
 		assert.equal(expand('p.p$*2>(i.i$+b.b$)*3'), '<p class="p1"><i class="i1"></i><b class="b1"></b><i class="i2"></i><b class="b2"></b><i class="i3"></i><b class="b3"></b></p><p class="p2"><i class="i1"></i><b class="b1"></b><i class="i2"></i><b class="b2"></b><i class="i3"></i><b class="b3"></b></p>');
 		assert.equal(expand('(p.i$+ul>li.i$*2>span.s$)*3'), '<p class="i1"></p><ul><li class="i1"><span class="s1"></span></li><li class="i2"><span class="s2"></span></li></ul><p class="i2"></p><ul><li class="i1"><span class="s1"></span></li><li class="i2"><span class="s2"></span></li></ul><p class="i3"></p><ul><li class="i1"><span class="s1"></span></li><li class="i2"><span class="s2"></span></li></ul>');
     });
+
+	it('skip repeater replace', () => {
+		assert.equal(expand('span[class=item\\$]*2'), '<span class="item$"></span><span class="item$"></span>');
+		assert.equal(expand('span{item \\$}*2'), '<span>item $</span><span>item $</span>');
+	});
 });
