@@ -35,4 +35,9 @@ describe('Item numbering', () => {
 		assert.equal(expand('span[class=item\\$]*2'), '<span class="item$"></span><span class="item$"></span>');
 		assert.equal(expand('span{item \\$}*2'), '<span>item $</span><span>item $</span>');
 	});
+
+	it('preserve attribute options', () => {
+		const tree = numbering(parse('[!foo="bar$"]*2'));
+		assert(tree.firstChild.getAttribute('foo').options.implied);
+	});
 });
