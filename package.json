@@ -9,7 +9,7 @@
     "build": "npm run build:cjs && npm run build:es",
     "build:cjs": "rollup -o dist/html-transform.cjs.js -f cjs ./index.js",
     "build:es": "rollup -o dist/html-transform.es.js -f es ./index.js",
-    "prepublish": "npm run build",
+    "prepublish": "npm run test && npm run build",
     "watch": "rollup -w -o dist/html-transform.cjs.js -f cjs ./index.js"
   },
   "repository": {
