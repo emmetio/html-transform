@@ -3,7 +3,7 @@
 const assert = require('assert');
 const parse = require('@emmetio/abbreviation');
 require('babel-register');
-const bem = require('../lib/bem').default;
+const bem = require('../lib/addons/bem').default;
 const stringify = require('./assets/stringify').default;
 
 describe('BEM transform', () => {

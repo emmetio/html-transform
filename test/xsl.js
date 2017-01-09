@@ -3,7 +3,7 @@
 const assert = require('assert');
 const parse = require('@emmetio/abbreviation');
 require('babel-register');
-const xsl = require('../lib/xsl').default;
+const xsl = require('../lib/addons/xsl').default;
 const stringify = require('./assets/stringify').default;
 
 describe('XSL transform', () => {

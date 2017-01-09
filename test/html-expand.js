@@ -14,4 +14,15 @@ describe('HTML expand', () => {
 		assert.equal(expand('ul>[class=$#]{item $}*', ['foo$', 'bar$']), '<ul><li class="foo$">item 1</li><li class="bar$">item 2</li></ul>');
 		assert.equal(expand('ul>.item$*'), '<ul><li class="item1"></li></ul>');
 	});
+
+	it('apply addons', () => {
+        // no addons
+		assert.equal(expand('ul.nav>.-item*2'), '<ul class="nav"><li class="-item"></li><li class="-item"></li></ul>');
+
+        // BEM addon
+        assert.equal(expand('ul.nav>.-item*2', {bem: true}), '<ul class="nav"><li class="nav__item"></li><li class="nav__item"></li></ul>');
+
+        // BEM addon with options
+        assert.equal(expand('ul.nav>.-item*2', {bem: {element: '--'}}), '<ul class="nav"><li class="nav--item"></li><li class="nav--item"></li></ul>');
+	});
 });

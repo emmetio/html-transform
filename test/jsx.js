@@ -3,7 +3,7 @@
 const assert = require('assert');
 const parse = require('@emmetio/abbreviation');
 require('babel-register');
-const jsx = require('../lib/jsx').default;
+const jsx = require('../lib/addons/jsx').default;
 const stringify = require('./assets/stringify').default;
 
 describe('JSX transform', () => {
