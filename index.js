@@ -14,7 +14,7 @@ import addons from './lib/addons/index';
 export default function(tree, content, appliedAddons) {
     if (typeof content === 'string') {
         content = [content];
-    } else if (typeof content === 'object' && !Array.isArray(content)) {
+    } else if (content && typeof content === 'object' && !Array.isArray(content)) {
         appliedAddons = content;
         content = null;
     }
