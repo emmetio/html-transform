@@ -6,11 +6,8 @@
   "jsnext:main": "dist/html-transform.es.js",
   "scripts": {
     "test": "mocha",
-    "build": "npm run build:cjs && npm run build:es",
-    "build:cjs": "rollup -o dist/html-transform.cjs.js -f cjs ./index.js",
-    "build:es": "rollup -o dist/html-transform.es.js -f es ./index.js",
-    "prepublish": "npm run test && npm run build",
-    "watch": "rollup -w -o dist/html-transform.cjs.js -f cjs ./index.js"
+    "build": "rollup -c",
+    "prepublish": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -31,11 +28,10 @@
   },
   "homepage": "https://github.com/emmetio/html-transform#readme",
   "devDependencies": {
-    "@emmetio/abbreviation": "^0.4.0",
+    "@emmetio/abbreviation": "^0.5.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
     "babel-register": "^6.18.0",
     "mocha": "^3.1.2",
-    "rollup": "^0.41.1",
-    "rollup-watch": "^3.2.2"
+    "rollup": "^0.41.1"
   }
 }
