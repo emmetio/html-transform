@@ -4,18 +4,9 @@ const assert = require('assert');
 const parse = require('@emmetio/abbreviation');
 require('babel-register');
 const implicitTag = require('../lib/implicit-tags').default;
-const tag = require('../lib/implicit-tags').resolveName;
 const stringify = require('./assets/stringify').default;
 
 describe('Implicit tags', () => {
-    it('resolve name', () => {
-        assert.equal(tag(), 'div');
-        assert.equal(tag('foo'), 'div');
-        assert.equal(tag('ul'), 'li');
-        assert.equal(tag('p'), 'span');
-        assert.equal(tag('b'), 'span');
-    });
-
     it('update tree', () => {
         const expand = abbr => stringify( implicitTag( parse(abbr) ) );
 

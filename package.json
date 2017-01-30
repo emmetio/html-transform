@@ -33,5 +33,8 @@
     "babel-register": "^6.18.0",
     "mocha": "^3.1.2",
     "rollup": "^0.41.1"
+  },
+  "dependencies": {
+    "@emmetio/implicit-tag": "^1.0.0"
   }
 }
