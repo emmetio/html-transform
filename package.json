@@ -3,7 +3,7 @@
   "version": "0.3.1",
   "description": "Prepares given Emmet abbreviation for HTML output",
   "main": "dist/html-transform.cjs.js",
-  "jsnext:main": "dist/html-transform.es.js",
+  "module": "dist/html-transform.es.js",
   "scripts": {
     "test": "mocha",
     "build": "rollup -c",
