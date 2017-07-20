@@ -41,4 +41,9 @@ describe('Item numbering', () => {
 		const tree = numbering(parse('[!foo="bar$"]*2'));
 		assert(tree.firstChild.getAttribute('foo').options.implied);
 	});
+
+	it('add offset to numbering', () => {
+		assert.equal(expand('span.item$@3*2'), '<span class="item3"></span><span class="item4"></span>');
+		assert.equal(expand('span.item$$@3*2'), '<span class="item03"></span><span class="item04"></span>');
+	});
 });
