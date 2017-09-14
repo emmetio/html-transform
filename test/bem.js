@@ -21,6 +21,7 @@ describe('BEM transform', () => {
 		assert.equal(expand('div.b>div.-e'), '<div class="b"><div class="b__e"></div></div>');
 		assert.equal(expand('div.b>div.---e'), '<div class="b"><div class="b__e"></div></div>');
 		assert.equal(expand('div.b>div.-e>div.-e'), '<div class="b"><div class="b__e"><div class="b__e"></div></div></div>');
+		assert.equal(expand('div'), '<div></div>', 'Fixes bug with empty class');
 
 		// get block name from proper ancestor
 		assert.equal(expand('div.b1>div.b2_m1>div.-e1+div.--e2_m2'), '<div class="b1"><div class="b2 b2_m1"><div class="b2__e1"></div><div class="b1__e2 b1__e2_m2"></div></div></div>');
