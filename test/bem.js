@@ -26,4 +26,10 @@ describe('BEM transform', () => {
 		// get block name from proper ancestor
 		assert.equal(expand('div.b1>div.b2_m1>div.-e1+div.--e2_m2'), '<div class="b1"><div class="b2 b2_m1"><div class="b2__e1"></div><div class="b1__e2 b1__e2_m2"></div></div></div>');
 	});
+
+	it('customize modifier', () => {
+		const expandWithOptions = (abbr, options) => stringify( bem( parse(abbr), options ) );
+		assert.equal(expandWithOptions('div.b_m', {element: '-', modifier: '__'}), '<div class="b b__m"></div>');
+		assert.equal(expandWithOptions('div.b._m', {element: '-', modifier: '__'}), '<div class="b b__m"></div>');
+	});
 });
