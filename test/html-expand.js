@@ -13,6 +13,7 @@ describe('HTML expand', () => {
 		assert.equal(expand('ul>.item$*', ['foo$', 'bar$']), '<ul><li class="item1">foo$</li><li class="item2">bar$</li></ul>');
 		assert.equal(expand('ul>[class=$#]{item $}*', ['foo$', 'bar$']), '<ul><li class="foo$">item 1</li><li class="bar$">item 2</li></ul>');
 		assert.equal(expand('ul>.item$*'), '<ul><li class="item1"></li></ul>');
+		assert.equal(expand('ul>.item$*', ['foo.bar', 'hello.world']), '<ul><li class="item1">foo.bar</li><li class="item2">hello.world</li></ul>');
 	});
 
 	it('apply addons', () => {
