@@ -1,6 +1,6 @@
 {
   "name": "@emmetio/html-transform",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Prepares given Emmet abbreviation for HTML output",
   "main": "dist/html-transform.cjs.js",
   "module": "dist/html-transform.es.js",
