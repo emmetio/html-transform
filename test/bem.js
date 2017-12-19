@@ -15,6 +15,9 @@ describe('BEM transform', () => {
 		assert.equal(expand('div.b_m1._m2'), '<div class="b b_m1 b_m2"></div>');
 		assert.equal(expand('div.b>div._m'), '<div class="b"><div class="b b_m"></div></div>');
 		assert.equal(expand('div.b>div._m1>div._m2'), '<div class="b"><div class="b b_m1"><div class="b b_m2"></div></div></div>');
+
+		// classnames with -
+		assert.equal(expand('div.b>div._m1-m2'), '<div class="b"><div class="b b_m1-m2"></div></div>');
 	});
 
 	it('elements', () => {
@@ -25,5 +28,8 @@ describe('BEM transform', () => {
 
 		// get block name from proper ancestor
 		assert.equal(expand('div.b1>div.b2_m1>div.-e1+div.--e2_m2'), '<div class="b1"><div class="b2 b2_m1"><div class="b2__e1"></div><div class="b1__e2 b1__e2_m2"></div></div></div>');
+	
+		// classnames with -
+		assert.equal(expand('div.b>div.-m1-m2'), '<div class="b"><div class="b__m1-m2"></div></div>');
 	});
 });
