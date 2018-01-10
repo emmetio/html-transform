@@ -32,4 +32,10 @@ describe('BEM transform', () => {
 		// classnames with -
 		assert.equal(expand('div.b>div.-m1-m2'), '<div class="b"><div class="b__m1-m2"></div></div>');
 	});
+
+	it('customize modifier', () => {
+		const expandWithOptions = (abbr, options) => stringify( bem( parse(abbr), options ) );
+		assert.equal(expandWithOptions('div.b_m', {element: '-', modifier: '__'}), '<div class="b b__m"></div>');
+		assert.equal(expandWithOptions('div.b._m', {element: '-', modifier: '__'}), '<div class="b b__m"></div>');
+	});
 });
