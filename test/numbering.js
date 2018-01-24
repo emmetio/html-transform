@@ -45,5 +45,13 @@ describe('Item numbering', () => {
 	it('add offset to numbering', () => {
 		assert.equal(expand('span.item$@3*2'), '<span class="item3"></span><span class="item4"></span>');
 		assert.equal(expand('span.item$$@3*2'), '<span class="item03"></span><span class="item04"></span>');
+		assert.equal(expand('span.item$@*2'), '<span class="item1"></span><span class="item2"></span>');
 	});
+	it('numbering in descending order', () => {
+		assert.equal(expand('span.item$@-*2'), '<span class="item2"></span><span class="item1"></span>');
+		assert.equal(expand('span.item$@-3*2'), '<span class="item4"></span><span class="item3"></span>');
+		assert.equal(expand('span.item$@-9*2'), '<span class="item10"></span><span class="item9"></span>');		
+		assert.equal(expand('span.item$$@-9*2'), '<span class="item10"></span><span class="item09"></span>');		
+		assert.equal(expand('span$.item$@-*2'), '<span1 class="item2"></span1><span2 class="item1"></span2>');
+	})
 });
