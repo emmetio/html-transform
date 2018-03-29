@@ -31,6 +31,9 @@ describe('BEM transform', () => {
 	
 		// classnames with -
 		assert.equal(expand('div.b>div.-m1-m2'), '<div class="b"><div class="b__m1-m2"></div></div>');
+
+		// classnames with _
+		assert.equal(expand('div.b_m_o'), '<div class="b b_m_o"></div>');
 	});
 
 	it('customize modifier', () => {
