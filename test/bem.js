@@ -41,4 +41,10 @@ describe('BEM transform', () => {
 		assert.equal(expandWithOptions('div.b_m', {element: '-', modifier: '__'}), '<div class="b b__m"></div>');
 		assert.equal(expandWithOptions('div.b._m', {element: '-', modifier: '__'}), '<div class="b b__m"></div>');
 	});
+
+	it('multiple classes after modifier/element', () => {
+		assert.equal(expand('div.b_m.c'), '<div class="b b_m c"></div>');
+		assert.equal(expand('div.b>div._m.c'), '<div class="b"><div class="b b_m c"></div></div>');
+		assert.equal(expand('div.b>div.-m.c'), '<div class="b"><div class="b__m c"></div></div>');
+	})
 });
