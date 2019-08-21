@@ -1,3 +1,9 @@
+# Deprecated
+
+Module implementation is moved to monorepo: https://github.com/emmetio/emmet/
+
+---
+
 # Emmet abbreviation transformer for HTML [![Build Status](https://travis-ci.org/emmetio/html-transform.svg?branch=master)](https://travis-ci.org/emmetio/html-transform)
 
 This modules takes parsed Emmet abbreviation tree and transforms it for markup syntax (HTML, XML, Pug, Slim etc.) output. This transformation includes:
